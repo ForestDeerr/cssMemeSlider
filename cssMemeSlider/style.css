@@ -6,28 +6,35 @@ h2{
 
 img {
     border-radius: 10px;
-    width: 900px;
+    width: 100%;
     height: 500px;
 }
 
+.title{
+    width: 100%;
+    text-align: left;
+}
+
 .wraper{
+    display: flex;
     background-color: #25282a;
     width: 100%;
-    
+    flex-direction: column;
+    align-items: center;
 }
 
 .slider { 
-    position: relative;  
+    position: relative;
     text-align: center;
-    max-width: 960px; 
+    max-width: 960px;
     margin: 0 auto;
-    top: 20px;
+    padding: 40px;
 }
 
 .slide{ 
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 30px;
 }
 
@@ -42,20 +49,30 @@ img {
 
 
 .overflow{ 
+    display: flex;
+    flex-direction: column;
 	width: 100%;
 	overflow: hidden;
+    gap: 20px;
 }
+
 
 .dots{
     display: flex;
+    position: relative;
+    top: -40px;
     justify-content: end;
-    width: 900px;
+    width: 100%;
     gap: 10px;
 }
 
+
+label{
+    display: flex;
+
+}
+
 .dots label{
-    position: relative;
-    top: -40px;
     background: #7ea7c9;
     border: 3px solid #7ea7c9;
 	border-radius: 10px;
@@ -88,18 +105,18 @@ img {
 	margin-left: -300%;
 }
 
-#switch1:checked ~ .dots label:nth-child(1) ,
-#switch2:checked ~ .dots label:nth-child(2),
-#switch3:checked ~ .dots label:nth-child(3),
-#switch4:checked ~ .dots label:nth-child(4){
+#switch1:checked ~ .slides .overflow .down-bar .dots label:nth-child(1),
+#switch2:checked ~ .slides .overflow .down-bar .dots label:nth-child(2),
+#switch3:checked ~ .slides .overflow .down-bar .dots label:nth-child(3),
+#switch4:checked ~ .slides .overflow .down-bar .dots label:nth-child(4){
 	background: #25282a;
     border-color: #7ea7c9;
 }
 
-#switch1:checked ~ .dots label:nth-child(1):hover,
-#switch2:checked ~ .dots label:nth-child(2):hover,
-#switch3:checked ~ .dots label:nth-child(3):hover,
-#switch4:checked ~ .dots label:nth-child(4):hover{
+#switch1:checked ~ .slides .overflow .down-bar .dots label:nth-child(1):hover,
+#switch2:checked ~ .slides .overflow .down-bar .dots label:nth-child(2):hover,
+#switch3:checked ~ .slides .overflow .down-bar .dots label:nth-child(3):hover,
+#switch4:checked ~ .slides .overflow .down-bar .dots label:nth-child(4):hover{
     border: solid #ffffff;
 }
 
@@ -110,4 +127,30 @@ img {
  /*скрываетвсе radio-input*/
 input[type="radio"]{ 
 	display: none;
+}
+
+@media (max-width: 769px) {
+    img {
+        height: 360px;
+    } 
+}
+
+
+@media (max-width: 641px) {
+    img {
+        height: 210px;
+    } 
+
+    h2{
+        font-size: 16px;
+    }
+
+    .overflow {
+         gap: 60px;
+    }
+
+    .dots{
+        top: -80px;
+        justify-content: center;
+    }
 }
